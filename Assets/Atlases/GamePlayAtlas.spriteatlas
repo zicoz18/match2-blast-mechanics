@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GamePlayAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: ac0050e1f256497a94c5bb001294931a, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - f06fb65006eda42468ba9f5774302099: 21300000
+    - 54a280a1337940f3872119db5ec67b16: 21300000
+    - 0dccbaa12d1c40daa502bf93665634c1: 21300000
+    - 1b2f0de131ec74bd4a243b05e3e393e3: 21300000
+    - ab8263f26c964614b2c152ac0da4f40b: 21300000
+    - 5d7c0513f9ad406ba0daab974e0849a2: 21300000
+    - 46364513cd7e41858a4f8e43821c18f5: 21300000
+    - 0e4af7832d644d85af862dbed697d3a9: 21300000
+    - b62589d38f664b5eaf032508ca3fea59: 21300000
+    - 2d3e7d24f2234176afb1f7c5f395f9ed: 21300000
+    - 13ccc1d493d57401b80125c8373b5258: 21300000
+    - f7c15f06c5fdb47408d0e48028756476: 21300000
+    - 3efa1847add28430dbc79043095ee5c6: 21300000
+    - e41687578e4a44e39bb7ca0f4e790b90: 21300000
+    - 3c311f4889dfa4aefa26edda46533de4: 21300000
+    - bb2250586a7b4fc4a56b55f2ad74514d: 21300000
+    - a8b80988e9cc48a0a5df8ae94739c094: 21300000
+    - be0c8c983aa58470f8e4139d2f50667f: 21300000
+    - 724d47cac7544a3f8f0b7b936e926e70: 21300000
+    - 0b721a1b15ffd4a1eb654d6152d27ad2: 21300000
+    - e21f3f5cedb4e47e99bf2fe27eb3f4ab: 21300000
+    - e2eb1fccd4cbc4adc9a0c2984a911cb9: 21300000
+    - f4505fdc0ad3442248ef3238ab6d2582: 21300000
+    - 87c408ec756d640b6900005d50e1827b: 21300000
+    - edac966d9e9f24a3996f949935aebaa0: 21300000
+    - 503a2d9d009e49cdae6601db612117c1: 21300000
+    - c79efdcd378c4dd8b7983645cf4c6cbb: 21300000
+    - e370194e611e24a0bbe6295ae5c462db: 21300000
+    - 37619d9e764f04a8aa5f7b46762c52ff: 21300000
+    - f54e6def96a8497ebff9ec916fbd25cc: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f06fb65006eda42468ba9f5774302099, type: 3}
+  - {fileID: 21300000, guid: 54a280a1337940f3872119db5ec67b16, type: 3}
+  - {fileID: 21300000, guid: 0dccbaa12d1c40daa502bf93665634c1, type: 3}
+  - {fileID: 21300000, guid: 1b2f0de131ec74bd4a243b05e3e393e3, type: 3}
+  - {fileID: 21300000, guid: ab8263f26c964614b2c152ac0da4f40b, type: 3}
+  - {fileID: 21300000, guid: 5d7c0513f9ad406ba0daab974e0849a2, type: 3}
+  - {fileID: 21300000, guid: 46364513cd7e41858a4f8e43821c18f5, type: 3}
+  - {fileID: 21300000, guid: 0e4af7832d644d85af862dbed697d3a9, type: 3}
+  - {fileID: 21300000, guid: b62589d38f664b5eaf032508ca3fea59, type: 3}
+  - {fileID: 21300000, guid: 2d3e7d24f2234176afb1f7c5f395f9ed, type: 3}
+  - {fileID: 21300000, guid: 13ccc1d493d57401b80125c8373b5258, type: 3}
+  - {fileID: 21300000, guid: f7c15f06c5fdb47408d0e48028756476, type: 3}
+  - {fileID: 21300000, guid: 3efa1847add28430dbc79043095ee5c6, type: 3}
+  - {fileID: 21300000, guid: e41687578e4a44e39bb7ca0f4e790b90, type: 3}
+  - {fileID: 21300000, guid: 3c311f4889dfa4aefa26edda46533de4, type: 3}
+  - {fileID: 21300000, guid: bb2250586a7b4fc4a56b55f2ad74514d, type: 3}
+  - {fileID: 21300000, guid: a8b80988e9cc48a0a5df8ae94739c094, type: 3}
+  - {fileID: 21300000, guid: be0c8c983aa58470f8e4139d2f50667f, type: 3}
+  - {fileID: 21300000, guid: 724d47cac7544a3f8f0b7b936e926e70, type: 3}
+  - {fileID: 21300000, guid: 0b721a1b15ffd4a1eb654d6152d27ad2, type: 3}
+  - {fileID: 21300000, guid: e21f3f5cedb4e47e99bf2fe27eb3f4ab, type: 3}
+  - {fileID: 21300000, guid: e2eb1fccd4cbc4adc9a0c2984a911cb9, type: 3}
+  - {fileID: 21300000, guid: f4505fdc0ad3442248ef3238ab6d2582, type: 3}
+  - {fileID: 21300000, guid: 87c408ec756d640b6900005d50e1827b, type: 3}
+  - {fileID: 21300000, guid: edac966d9e9f24a3996f949935aebaa0, type: 3}
+  - {fileID: 21300000, guid: 503a2d9d009e49cdae6601db612117c1, type: 3}
+  - {fileID: 21300000, guid: c79efdcd378c4dd8b7983645cf4c6cbb, type: 3}
+  - {fileID: 21300000, guid: e370194e611e24a0bbe6295ae5c462db, type: 3}
+  - {fileID: 21300000, guid: 37619d9e764f04a8aa5f7b46762c52ff, type: 3}
+  - {fileID: 21300000, guid: f54e6def96a8497ebff9ec916fbd25cc, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - yellowCubeBomb
+  - rocketUp
+  - blueBalloon
+  - redCube
+  - rocketHorizontal
+  - yellowBalloon
+  - blueCubeRocket
+  - yellowCubeRocket
+  - rocketRight
+  - rocketDown
+  - yellowCube
+  - blueCube
+  - greenCubeBomb
+  - particleSquare
+  - bomb
+  - rocketVertical
+  - redBalloon
+  - crate2
+  - rocketLeft
+  - greenCube
+  - balloon
+  - borders
+  - crate1
+  - particleSoft
+  - blueCubeBomb
+  - greenCubeRocket
+  - redCubeRocket
+  - background
+  - redCubeBomb
+  - greenBalloon
+  m_RenderDataMap: {}
+  m_Tag: GamePlayAtlas
+  m_IsVariant: 0
+  m_Guid: 757df4d4ceeeb466c9a127069bf54505

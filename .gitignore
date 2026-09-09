@@ -53,3 +53,8 @@ Assets/_Recovery/
 
 # Personal working notes (not part of the project)
 Level*_readme.md
+
+# Build output
+Build/
+
+roadmap.md

@@ -29,6 +29,11 @@ namespace Game.Core.LevelBase
 			Board.Prepare();
 		}
 
+		private void Update()
+		{
+			_levelProgressManager.CheckProgression();
+		}
+
 		private void PrepareLevel()
 		{
 			if (_levelData == null) _levelData = LevelDataFactory.CreateLevelData(CurrentLevel);
@@ -53,7 +58,7 @@ namespace Game.Core.LevelBase
 				_levelProgressManager = new LevelProgressManager();
 				ServiceProvider.Register(_levelProgressManager);
 			}
-			_levelProgressManager.Prepare(_levelData.Goals, _levelData.MoveLimit);
+			_levelProgressManager.Prepare(_levelData.Goals, _levelData.MoveLimit, Board);
 		}
 
 		private void StartFalls()

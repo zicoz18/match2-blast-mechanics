@@ -29,6 +29,8 @@ namespace Game.Core.BoardBase
 		private readonly MatchFinder _matchFinder = new MatchFinder();
 		private readonly MatchNeighbourFinder _matchNeighbourFinder = new MatchNeighbourFinder();
 
+		private bool _canBeTapped = true;
+
 		public int ChangeVersion { get; private set; }
 		private void MarkChange()
 		{
@@ -71,6 +73,7 @@ namespace Game.Core.BoardBase
 
 		public void CellTapped(Cell cell)
 		{
+			if (!_canBeTapped) return;
 			if (cell == null) return;
 
 			if (!cell.HasItem()) return;
@@ -240,6 +243,11 @@ namespace Game.Core.BoardBase
 				}
 			}
 			return false;
+		}
+
+		public void SetCanBeTapped(bool canBeTapped)
+		{
+			_canBeTapped = canBeTapped;
 		}
 	}
 }

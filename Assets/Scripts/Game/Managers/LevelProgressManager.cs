@@ -1,5 +1,7 @@
+using System;
 using Game.Core.Enums;
 using Game.Core.LevelBase;
+using Game.Core.BoardBase;
 using UnityEngine;
 
 
@@ -7,13 +9,74 @@ namespace Game.Managers
 {
     public class LevelProgressManager : IProvidable
     {
+        private Board _board;
         private Goal[] _goals;
         private int _movesRemaining;
 
-        public void Prepare(Goal[] goals, int moveLimit)
+        private int _lastSeenVersion = -1;
+
+        public LevelPlayState LevelPlayState { get; private set; }
+
+        public event EventHandler<OnLevelPlayStateChangedEventArgs> OnLevelPlayStateChanged;
+        public class OnLevelPlayStateChangedEventArgs : EventArgs
         {
-            SetGoals(goals);
+            public LevelPlayState LevelPlayState;
+        }
+
+
+        public void CheckProgression()
+        {
+            if (!ShouldCheckProgression()) return;
+            _lastSeenVersion = _board.ChangeVersion;
+            bool isLevelCompleted = IsLevelCompleted();
+            bool hasMovesRemaining = HasMovesRemaining();
+
+            if (isLevelCompleted)
+            {
+                UpdateLevelPlayState(LevelPlayState.Completed);
+            }
+            else if (!hasMovesRemaining)
+            {
+                UpdateLevelPlayState(LevelPlayState.Failed);
+            }
+            if (isLevelCompleted || !hasMovesRemaining)
+            {
+                _board.SetCanBeTapped(false);
+            }
+        }
+
+        private bool ShouldCheckProgression()
+        {
+            if (!IsPlaying()) return false;
+            if (_board.IsMoving()) return false;
+            if (_lastSeenVersion == _board.ChangeVersion) return false;
+            return true;
+        }
+
+        public bool IsPlaying()
+        {
+            return LevelPlayState.Playing == LevelPlayState;
+        }
+
+        public void Prepare(Goal[] goals, int moveLimit, Board board)
+        {
             SetMovesRemaining(moveLimit);
+            _goals = goals;
+            _board = board;
+            _board.SetCanBeTapped(true);
+            _lastSeenVersion = _board.ChangeVersion;
+            UpdateLevelPlayState(LevelPlayState.Playing);
+        }
+
+        private void UpdateLevelPlayState(LevelPlayState newState)
+        {
+            LevelPlayState = newState;
+            OnLevelPlayStateChanged?.Invoke(this, new OnLevelPlayStateChangedEventArgs { LevelPlayState = newState });
+        }
+
+        public bool HasMovesRemaining()
+        {
+            return _movesRemaining > 0;
         }
 
         public int GetMovesRemaining()
@@ -24,11 +87,6 @@ namespace Game.Managers
         public Goal[] GetGoals()
         {
             return _goals;
-        }
-
-        private void SetGoals(Goal[] goals)
-        {
-            _goals = goals;
         }
 
         private void SetMovesRemaining(int movesRemaining)
@@ -45,6 +103,17 @@ namespace Game.Managers
                 isDecremented = true;
             }
             return isDecremented;
+        }
+
+        private bool IsLevelCompleted()
+        {
+            for (int i = 0; i < _goals.Length; i++)
+            {
+                Goal goal = _goals[i];
+                bool isGoalComplete = goal.IsComplete();
+                if (!isGoalComplete) return false;
+            }
+            return true;
         }
 
         public void ItemTypeDestroyed(ItemType itemType)

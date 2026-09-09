@@ -7,6 +7,10 @@ namespace Game.Levels
 {
     public class LevelData_2 : LevelData
     {
+        public int Level_2_MoveLimit = 20;
+        public Goal[] Level_2_Goals = { new Goal(GoalType.Balloon, 10) };
+
+
         private const int PercentRange = 100;
         private const int CubeProbabilityPercent = 90;
         public override ItemType GetNextFillItemType()
@@ -42,6 +46,9 @@ namespace Game.Levels
                     }
                 }
             }
+
+            MoveLimit = Level_2_MoveLimit;
+            Goals = Level_2_Goals;
         }
     }
 }

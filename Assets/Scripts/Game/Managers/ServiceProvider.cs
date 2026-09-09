@@ -20,7 +20,7 @@ namespace Game.Managers
 
         public static T Register<T>(T target) where T : class, IProvidable
         {
-            RegisterDictionary.Add(typeof(T), target);
+            RegisterDictionary[typeof(T)] = target;
             return target;
         }
 
@@ -37,6 +37,11 @@ namespace Game.Managers
         public static ImageLibrary GetImageLibrary
         {
             get { return GetManager<ImageLibrary>(); }
+        }
+
+        public static LevelProgressManager GetLevelProgressManager
+        {
+            get { return GetManager<LevelProgressManager>(); }
         }
     }
 }

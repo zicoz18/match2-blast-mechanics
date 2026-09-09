@@ -4,9 +4,12 @@ using UnityEngine;
 namespace Game.Core.LevelBase
 {
 	public abstract class LevelData
-	{		
+	{
 		public abstract ItemType GetNextFillItemType();
 		public abstract void Initialize();
+
+		public int MoveLimit { get; protected set; }
+		public Goal[] Goals { get; protected set; }
 
 		public ItemType[,] GridData { get; protected set; }
 

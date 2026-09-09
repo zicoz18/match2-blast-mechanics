@@ -6,6 +6,9 @@ namespace Game.Levels
 {
     public class LevelData_3 : LevelData
     {
+        public int Level_3_MoveLimit = 20;
+        public Goal[] Level_3_Goals = { new Goal(GoalType.ColoredBalloon, 10) };
+
         private static readonly ItemType[] ColoredBalloonArray = new[]
         {
             ItemType.GreenBalloon,
@@ -37,6 +40,10 @@ namespace Game.Levels
                     GridData[x, y] = GetRandomCubeItemType();
                 }
             }
+
+
+            MoveLimit = Level_3_MoveLimit;
+            Goals = Level_3_Goals;
         }
 
         private ItemType GetRandomColoredBalloonItemType()

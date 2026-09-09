@@ -28,43 +28,43 @@ namespace Game.Core.ItemBase
             switch (itemType)
             {
                 case ItemType.GreenCube:
-                    item = CreateCubeItem(itemBase, MatchType.Green);
+                    item = CreateCubeItem(itemBase, MatchType.Green, itemType);
                     break;
                 case ItemType.YellowCube:
-                    item = CreateCubeItem(itemBase, MatchType.Yellow);
+                    item = CreateCubeItem(itemBase, MatchType.Yellow, itemType);
                     break;
                 case ItemType.BlueCube:
-                    item = CreateCubeItem(itemBase, MatchType.Blue);
+                    item = CreateCubeItem(itemBase, MatchType.Blue, itemType);
                     break;
                 case ItemType.RedCube:
-                    item = CreateCubeItem(itemBase, MatchType.Red);
+                    item = CreateCubeItem(itemBase, MatchType.Red, itemType);
                     break;
                 case ItemType.Crate:
-                    item = CreateCrateItem(itemBase);
+                    item = CreateCrateItem(itemBase, itemType);
                     break;
                 case ItemType.Balloon:
-                    item = CreateBalloonItem(itemBase);
+                    item = CreateBalloonItem(itemBase, itemType);
                     break;
                 case ItemType.GreenBalloon:
-                    item = CreateColorBalloonItem(itemBase, MatchType.Green);
+                    item = CreateColorBalloonItem(itemBase, MatchType.Green, itemType);
                     break;
                 case ItemType.YellowBalloon:
-                    item = CreateColorBalloonItem(itemBase, MatchType.Yellow);
+                    item = CreateColorBalloonItem(itemBase, MatchType.Yellow, itemType);
                     break;
                 case ItemType.BlueBalloon:
-                    item = CreateColorBalloonItem(itemBase, MatchType.Blue);
+                    item = CreateColorBalloonItem(itemBase, MatchType.Blue, itemType);
                     break;
                 case ItemType.RedBalloon:
-                    item = CreateColorBalloonItem(itemBase, MatchType.Red);
+                    item = CreateColorBalloonItem(itemBase, MatchType.Red, itemType);
                     break;
                 case ItemType.VerticalRocket:
-                    item = CreateVerticalRocketItem(itemBase);
+                    item = CreateVerticalRocketItem(itemBase, itemType);
                     break;
                 case ItemType.HorizontalRocket:
-                    item = CreateHorizontalRocketItem(itemBase);
+                    item = CreateHorizontalRocketItem(itemBase, itemType);
                     break;
                 case ItemType.Bomb:
-                    item = CreateBombItem(itemBase);
+                    item = CreateBombItem(itemBase, itemType);
                     break;
                 default:
                     Debug.LogWarning("Can not create item: " + itemType);
@@ -83,54 +83,53 @@ namespace Game.Core.ItemBase
             return item;
         }
 
-        private Item CreateCubeItem(ItemBase itemBase, MatchType matchType)
+        private Item CreateCubeItem(ItemBase itemBase, MatchType matchType, ItemType itemType)
         {
             var cubeItem = itemBase.gameObject.AddComponent<CubeItem>();
-            cubeItem.PrepareCubeItem(itemBase, matchType);
+            cubeItem.PrepareCubeItem(itemBase, matchType, itemType);
 
             return cubeItem;
         }
 
-        private Item CreateCrateItem(ItemBase itemBase)
+        private Item CreateCrateItem(ItemBase itemBase, ItemType itemType)
         {
             var crateItem = itemBase.gameObject.AddComponent<CrateItem>();
-            crateItem.PrepareCrateItem(itemBase);
+            crateItem.PrepareCrateItem(itemBase, itemType);
             return crateItem;
         }
 
-        // TODO: Think about a cleaner way to do this
-        private Item CreateBalloonItem(ItemBase itemBase)
+        private Item CreateBalloonItem(ItemBase itemBase, ItemType itemType)
         {
             var balloonItem = itemBase.gameObject.AddComponent<BalloonItem>();
-            balloonItem.PrepareBalloonItem(itemBase);
+            balloonItem.PrepareBalloonItem(itemBase, itemType);
             return balloonItem;
         }
 
-        private Item CreateColorBalloonItem(ItemBase itemBase, MatchType matchType)
+        private Item CreateColorBalloonItem(ItemBase itemBase, MatchType matchType, ItemType itemType)
         {
             var colorBalloonItem = itemBase.gameObject.AddComponent<ColorBalloonItem>();
-            colorBalloonItem.PrepareColorBalloonItem(itemBase, matchType);
+            colorBalloonItem.PrepareColorBalloonItem(itemBase, matchType, itemType);
             return colorBalloonItem;
         }
 
-        private Item CreateBombItem(ItemBase itemBase)
+        private Item CreateBombItem(ItemBase itemBase, ItemType itemType)
         {
             var bombItem = itemBase.gameObject.AddComponent<BombItem>();
-            bombItem.PrepareSpecialItem(itemBase);
+            bombItem.PrepareSpecialItem(itemBase, itemType);
             return bombItem;
         }
 
-        private Item CreateVerticalRocketItem(ItemBase itemBase)
+        private Item CreateVerticalRocketItem(ItemBase itemBase, ItemType itemType)
         {
             var verticalRocketItem = itemBase.gameObject.AddComponent<VerticalRocketItem>();
-            verticalRocketItem.PrepareSpecialItem(itemBase);
+            verticalRocketItem.PrepareSpecialItem(itemBase, itemType);
             return verticalRocketItem;
         }
 
-        private Item CreateHorizontalRocketItem(ItemBase itemBase)
+        private Item CreateHorizontalRocketItem(ItemBase itemBase, ItemType itemType)
         {
             var horizontalRocketItem = itemBase.gameObject.AddComponent<HorizontalRocketItem>();
-            horizontalRocketItem.PrepareSpecialItem(itemBase);
+            horizontalRocketItem.PrepareSpecialItem(itemBase, itemType);
             return horizontalRocketItem;
         }
     }

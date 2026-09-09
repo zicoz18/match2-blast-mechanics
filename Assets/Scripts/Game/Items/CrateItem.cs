@@ -9,13 +9,13 @@ namespace Game.Items
     {
         private Sprite[] _sprites;
 
-        public void PrepareCrateItem(ItemBase itemBase)
+        public void PrepareCrateItem(ItemBase itemBase, ItemType itemType)
         {
             var imageLibrary = ServiceProvider.GetImageLibrary;
             _sprites = new[] { imageLibrary.CrateLayer1Sprite, imageLibrary.CrateLayer2Sprite };
 
             Health = _sprites.Length;
-            Prepare(itemBase, GetSpriteForHealth(Health));
+            Prepare(itemBase, GetSpriteForHealth(Health), itemType);
             CanFall = false;
         }
 

@@ -14,11 +14,13 @@ namespace Game.Core.LevelBase
 		[SerializeField] private FallAndFillManager FallAndFillManager;
 
 		private LevelData _levelData;
+		private LevelProgressManager _levelProgressManager;
 
 		private void Start()
 		{
 			PrepareBoard();
 			PrepareLevel();
+			PrepareGoals();
 			StartFalls();
 		}
 
@@ -29,7 +31,7 @@ namespace Game.Core.LevelBase
 
 		private void PrepareLevel()
 		{
-			_levelData = LevelDataFactory.CreateLevelData(CurrentLevel);
+			if (_levelData == null) _levelData = LevelDataFactory.CreateLevelData(CurrentLevel);
 
 			for (var y = 0; y < _levelData.GridData.GetLength(0); y++)
 			{
@@ -41,6 +43,17 @@ namespace Game.Core.LevelBase
 					ServiceProvider.GetItemFactory.CreateItemAtCell(itemType, Board.ItemsParent, cell);
 				}
 			}
+		}
+
+		private void PrepareGoals()
+		{
+			if (_levelData == null) _levelData = LevelDataFactory.CreateLevelData(CurrentLevel);
+			if (_levelProgressManager == null)
+			{
+				_levelProgressManager = new LevelProgressManager();
+				ServiceProvider.Register(_levelProgressManager);
+			}
+			_levelProgressManager.Prepare(_levelData.Goals, _levelData.MoveLimit);
 		}
 
 		private void StartFalls()

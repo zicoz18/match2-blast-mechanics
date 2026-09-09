@@ -1,6 +1,7 @@
 using Game.Core.BoardBase;
 using Game.Core.Enums;
 using Game.Mechanics;
+using Game.Managers;
 using UnityEngine;
 
 namespace Game.Core.ItemBase
@@ -12,6 +13,7 @@ namespace Game.Core.ItemBase
 
         public SpriteRenderer SpriteRenderer;
         public FallAnimation FallAnimation;
+        public ItemType ItemType;
 
         private int _childSpriteOrder;
 
@@ -43,11 +45,12 @@ namespace Game.Core.ItemBase
             }
         }
 
-        public void Prepare(ItemBase itemBase, Sprite sprite)
+        public void Prepare(ItemBase itemBase, Sprite sprite, ItemType itemType)
         {
             SpriteRenderer = AddSprite(sprite);
             FallAnimation = itemBase.FallAnimation;
             FallAnimation.Item = this;
+            ItemType = itemType;
         }
 
         public SpriteRenderer AddSprite(Sprite sprite)
@@ -143,6 +146,8 @@ namespace Game.Core.ItemBase
 
         public void RemoveItem()
         {
+            ServiceProvider.GetLevelProgressManager.ItemTypeDestroyed(ItemType);
+
             Cell.Item = null;
             Cell = null;
 

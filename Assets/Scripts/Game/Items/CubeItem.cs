@@ -10,10 +10,10 @@ namespace Game.Items
     {
         private MatchType _matchType;
 
-        public void PrepareCubeItem(ItemBase itemBase, MatchType matchType)
+        public void PrepareCubeItem(ItemBase itemBase, MatchType matchType, ItemType itemType)
         {
             _matchType = matchType;
-            Prepare(itemBase, ServiceProvider.GetImageLibrary.GetSpriteForCubeItem(matchType));
+            Prepare(itemBase, ServiceProvider.GetImageLibrary.GetSpriteForCubeItem(matchType), itemType);
         }
 
         public override MatchType GetMatchType()

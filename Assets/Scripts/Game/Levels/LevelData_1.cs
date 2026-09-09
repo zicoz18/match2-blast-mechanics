@@ -6,6 +6,10 @@ namespace Game.Levels
 {
     public class LevelData_1 : LevelData
     {
+        public int Level_1_MoveLimit = 20;
+        public Goal[] Level_1_Goals = { new Goal(GoalType.Crate, 12) };
+
+
         public override ItemType GetNextFillItemType()
         {
             return GetRandomCubeItemType();
@@ -40,6 +44,8 @@ namespace Game.Levels
                     GridData[x, y] = GetRandomCubeItemType();
                 }
             }
+            MoveLimit = Level_1_MoveLimit;
+            Goals = Level_1_Goals;
         }
     }
 }

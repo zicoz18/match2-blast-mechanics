@@ -8,10 +8,10 @@ namespace Game.Items
     public class ColorBalloonItem : Item
     {
         private MatchType _matchType;
-        public void PrepareColorBalloonItem(ItemBase itemBase, MatchType matchType)
+        public void PrepareColorBalloonItem(ItemBase itemBase, MatchType matchType, ItemType itemType)
         {
             _matchType = matchType;
-            Prepare(itemBase, ServiceProvider.GetImageLibrary.GetSpriteForColorBalloonItem(matchType));
+            Prepare(itemBase, ServiceProvider.GetImageLibrary.GetSpriteForColorBalloonItem(matchType), itemType);
         }
 
         public override void TryNeighbourExecute(MatchType matchType)

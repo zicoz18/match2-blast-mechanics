@@ -12,10 +12,10 @@ namespace Game.Core.ItemBase
         protected abstract List<Cell> GetBlastArea();
         protected abstract Sprite GetSprite();
 
-        public void PrepareSpecialItem(ItemBase itemBase)
+        public void PrepareSpecialItem(ItemBase itemBase, ItemType itemType)
         {
             CanActivate = true;
-            Prepare(itemBase, GetSprite());
+            Prepare(itemBase, GetSprite(), itemType);
         }
 
 

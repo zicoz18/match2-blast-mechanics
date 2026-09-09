@@ -14,7 +14,7 @@ namespace Game.Levels
         public override void Initialize()
         {
             GridData = new ItemType[Board.Rows, Board.Cols];
-            
+
             GridData[0, 4] = ItemType.Crate;
             GridData[8, 4] = ItemType.Crate;
 
@@ -38,10 +38,10 @@ namespace Game.Levels
             {
                 for (var x = 0; x < Board.Cols; x++)
                 {
-                    if(GridData[x, y] != ItemType.None) continue; 
+                    if (GridData[x, y] != ItemType.None) continue;
                     GridData[x, y] = GetRandomCubeItemType();
                 }
-            }   
+            }
         }
     }
 }

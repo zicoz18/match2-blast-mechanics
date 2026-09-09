@@ -6,9 +6,9 @@ namespace Game.Items
 {
     public class BalloonItem : Item
     {
-        public void PrepareBalloonItem(ItemBase itemBase)
+        public void PrepareBalloonItem(ItemBase itemBase, ItemType itemType)
         {
-            Prepare(itemBase, ServiceProvider.GetImageLibrary.BalloonSprite);
+            Prepare(itemBase, ServiceProvider.GetImageLibrary.BalloonSprite, itemType);
         }
 
         public override void TryNeighbourExecute(MatchType _)

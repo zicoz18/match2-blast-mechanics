@@ -5,8 +5,8 @@ namespace Game.Core.LevelBase
 {
     public class Goal
     {
-        private GoalType Type;
-        private int Count;
+        public GoalType Type { get; private set; }
+        public int Count { get; private set; }
 
         public Goal(GoalType type, int count)
         {

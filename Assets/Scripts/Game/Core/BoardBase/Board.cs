@@ -30,9 +30,13 @@ namespace Game.Core.BoardBase
 		private readonly MatchNeighbourFinder _matchNeighbourFinder = new MatchNeighbourFinder();
 
 		public int ChangeVersion { get; private set; }
-		private void RegisterTap()
+		private void MarkChange()
 		{
 			ChangeVersion++;
+		}
+
+		private void ConsumeMove()
+		{
 			ServiceProvider.GetLevelProgressManager.TryDecrementMovesRemaining();
 		}
 
@@ -93,7 +97,8 @@ namespace Game.Core.BoardBase
 				ApplyEffectToNeighbourCells(neighbourCellsToMatchingCells, matchType);
 				ApplyEffectToTappedCell(cell, matchingCells.Count);
 			}
-			RegisterTap();
+			MarkChange();
+			ConsumeMove();
 		}
 
 		private void ExecuteCombo(List<Cell> matchingCells, Cell tappedCell)

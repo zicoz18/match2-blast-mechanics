@@ -30,11 +30,17 @@ namespace GameEditor
 			}
 			EditorBuildSettings.scenes = buildScenes;
 
-			// Gzip rather than Brotli: GitHub Pages does not send the Content-Encoding
-			// headers Brotli requires, and the build silently fails to load there.
 			// Custom template: the stock one pins the canvas at 960x600 inside a page frame.
 			PlayerSettings.WebGL.template = "PROJECT:Responsive";
+
+			// GitHub Pages serves pre-compressed files without a Content-Encoding header
+			// and cannot be configured to send one, so the browser never un-compresses
+			// them and the loader aborts. decompressionFallback embeds a decompressor in
+			// the loader instead, which costs a little startup time and works on any
+			// static host. Gzip rather than Brotli because the JavaScript Brotli
+			// decompressor is far slower, which is exactly what the fallback exercises.
 			PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+			PlayerSettings.WebGL.decompressionFallback = true;
 			PlayerSettings.WebGL.exceptionSupport = WebGLExceptionSupport.None;
 			PlayerSettings.WebGL.dataCaching = true;
 			PlayerSettings.SetManagedStrippingLevel(NamedBuildTarget.WebGL, ManagedStrippingLevel.High);

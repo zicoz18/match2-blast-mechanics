@@ -3,6 +3,9 @@
 A 9x9 tap-to-match puzzle game in Unity, playable in the browser: eleven levels, obstacles,
 bombs, rockets, special-item combos, per-level objectives and saved progress.
 
+**[Play it](https://zicoz18.github.io/match2-blast-mechanics/)** — works on desktop and
+mobile, no install.
+
 The project has two distinct halves, and the repository is laid out so you can tell them
 apart.
 

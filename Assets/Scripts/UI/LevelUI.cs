@@ -18,8 +18,6 @@ namespace UI
 
 		private void Update()
 		{
-			if (_levelProgress == null) return;
-
 			int movesRemaining = _levelProgress.GetMovesRemaining();
 			if (movesRemaining == _shownMovesRemaining) return;
 

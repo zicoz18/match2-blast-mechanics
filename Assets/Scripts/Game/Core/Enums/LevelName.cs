@@ -8,10 +8,10 @@ namespace Game.Core.Enums
         Level3,
         Level4,
         Level5,
-        Level6_1,
-        Level6_2,
-        LevelTest1,
-        LevelTest2,
-        LevelTest3,
+        Level6,
+        Level7,
+        Level8,
+        Level9,
+        Level10,
     }
 }

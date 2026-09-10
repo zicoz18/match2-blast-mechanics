@@ -4,10 +4,10 @@ using Game.Core.LevelBase;
 
 namespace Game.Levels
 {
-    public class LevelData_6_2 : LevelData
+    public class LevelData_6 : LevelData
     {
-        public int Level_6_2_MoveLimit = 20;
-        public Goal[] Level_6_2_Goals = { new Goal(GoalType.AnyRocket, 7), new Goal(GoalType.Bomb, 4) };
+        public int Level_6_MoveLimit = 20;
+        public Goal[] Level_6_Goals = { new Goal(GoalType.AnyRocket, 5), new Goal(GoalType.Bomb, 4) };
 
         public override ItemType GetNextFillItemType()
         {
@@ -18,17 +18,14 @@ namespace Game.Levels
         {
             GridData = new ItemType[Board.Rows, Board.Cols];
 
-            GridData[4, 8] = ItemType.VerticalRocket;
             GridData[4, 7] = ItemType.HorizontalRocket;
-            GridData[4, 6] = ItemType.VerticalRocket;
+            GridData[4, 6] = ItemType.Bomb;
 
-            GridData[0, 2] = ItemType.VerticalRocket;
-            GridData[1, 2] = ItemType.Bomb;
+            GridData[1, 2] = ItemType.VerticalRocket;
             GridData[2, 2] = ItemType.VerticalRocket;
 
             GridData[6, 1] = ItemType.Bomb;
-            GridData[7, 1] = ItemType.HorizontalRocket;
-            GridData[8, 1] = ItemType.Bomb;
+            GridData[7, 1] = ItemType.Bomb;
 
             for (var y = 0; y < Board.Rows; y++)
             {
@@ -39,8 +36,8 @@ namespace Game.Levels
                 }
             }
 
-            MoveLimit = Level_6_2_MoveLimit;
-            Goals = Level_6_2_Goals;
+            MoveLimit = Level_6_MoveLimit;
+            Goals = Level_6_Goals;
         }
     }
 }

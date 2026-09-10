@@ -4,8 +4,11 @@ using Game.Core.LevelBase;
 
 namespace Game.Levels
 {
-    public class LevelTest_1 : LevelData
+    public class LevelData_8 : LevelData
     {
+        public int Level_8_MoveLimit = 20;
+        public Goal[] Level_8_Goals = { new Goal(GoalType.Crate, 4), new Goal(GoalType.Bomb, 3) };
+
         private readonly ItemType[] _itemArray =
         {
             ItemType.GreenCube,
@@ -42,6 +45,9 @@ namespace Game.Levels
                     GridData[x, y] = GetRandomItemType();
                 }
             }
+
+            MoveLimit = Level_8_MoveLimit;
+            Goals = Level_8_Goals;
         }
 
         private ItemType GetRandomItemType()

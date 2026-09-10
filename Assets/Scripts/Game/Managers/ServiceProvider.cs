@@ -10,12 +10,14 @@ namespace Game.Managers
 
         public static T GetManager<T>() where T : class, IProvidable
         {
-            if (RegisterDictionary.ContainsKey(typeof(T)))
+            if (RegisterDictionary.TryGetValue(typeof(T), out IProvidable manager))
             {
-                return (T)RegisterDictionary[typeof(T)];
+                return (T)manager;
             }
 
-            return null;
+            throw new InvalidOperationException(
+                $"{typeof(T).Name} was never registered with ServiceProvider. " +
+                "Is the object that registers it present in this scene?");
         }
 
         public static T Register<T>(T target) where T : class, IProvidable

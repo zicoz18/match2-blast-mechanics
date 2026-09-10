@@ -979,6 +979,7 @@ GameObject:
   - component: {fileID: 1652357714}
   - component: {fileID: 1652357718}
   - component: {fileID: 1652357719}
+  - component: {fileID: 1652357720}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1104,6 +1105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemBasePrefab: {fileID: 114038833363807072, guid: e00f41783be114ebfa254d6f6f6b919f, type: 3}
+--- !u!114 &1652357720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652357712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2fe17f036e843be82726cf003af5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Core.LevelBase.LevelFlow
 --- !u!1 &1681444628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,7 +1400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db858d6876714a59856fa3c689a1b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentLevel: 0
+  useOverrideLevel: 1
+  overrideLevel: 10
   Board: {fileID: 238690310}
   FallAndFillManager: {fileID: 1652357715}
 --- !u!1660057539 &9223372036854775807

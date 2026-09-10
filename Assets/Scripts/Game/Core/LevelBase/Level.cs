@@ -8,7 +8,22 @@ namespace Game.Core.LevelBase
 {
 	public class Level : MonoBehaviour
 	{
-		public LevelName CurrentLevel;
+#if UNITY_EDITOR
+		[Header("Editor only. Lets you open LevelScene directly on a chosen level")]
+		[SerializeField] private bool useOverrideLevel;
+		[SerializeField] private LevelName overrideLevel;
+#endif
+
+		private LevelName CurrentLevel
+		{
+			get
+			{
+#if UNITY_EDITOR
+				if (useOverrideLevel) return overrideLevel;
+#endif
+				return LevelProgress.Current;
+			}
+		}
 
 		[SerializeField] private Board Board;
 		[SerializeField] private FallAndFillManager FallAndFillManager;

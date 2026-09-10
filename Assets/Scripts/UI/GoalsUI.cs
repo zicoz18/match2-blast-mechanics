@@ -15,8 +15,6 @@ namespace UI
 		private void Start()
 		{
 			_levelProgress = ServiceProvider.GetLevelProgressManager;
-			if (_levelProgress == null) return;
-
 			CreateDisplays(_levelProgress.GetGoals());
 		}
 
@@ -34,8 +32,6 @@ namespace UI
 
 		private void Update()
 		{
-			if (_levelProgress == null) return;
-
 			Goal[] goals = _levelProgress.GetGoals();
 			for (int i = 0; i < _displays.Count; i++)
 			{

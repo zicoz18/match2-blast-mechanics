@@ -4,8 +4,10 @@ using Game.Core.LevelBase;
 
 namespace Game.Levels
 {
-    public class LevelTest_2 : LevelData
+    public class LevelData_9 : LevelData
     {
+        public int Level_9_MoveLimit = 20;
+        public Goal[] Level_9_Goals = { new Goal(GoalType.Balloon, 40), new Goal(GoalType.Bomb, 9) };
         public override ItemType GetNextFillItemType()
         {
             return GetRandomCubeItemType();
@@ -104,6 +106,9 @@ namespace Game.Levels
             GridData[8, 6] = ItemType.BlueBalloon;
             GridData[8, 7] = ItemType.BlueBalloon;
             GridData[8, 8] = ItemType.BlueCube;
+
+            MoveLimit = Level_9_MoveLimit;
+            Goals = Level_9_Goals;
         }
     }
 }

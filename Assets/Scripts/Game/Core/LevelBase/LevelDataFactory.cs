@@ -28,17 +28,20 @@ namespace Game.Core.LevelBase
                 case LevelName.Level5:
                     levelData = new LevelData_5();
                     break;
-                case LevelName.Level6_1:
-                    levelData = new LevelData_6_1();
+                case LevelName.Level6:
+                    levelData = new LevelData_6();
                     break;
-                case LevelName.Level6_2:
-                    levelData = new LevelData_6_2();
+                case LevelName.Level7:
+                    levelData = new LevelData_7();
                     break;
-                case LevelName.LevelTest1:
-                    levelData = new LevelTest_1();
+                case LevelName.Level8:
+                    levelData = new LevelData_8();
                     break;
-                case LevelName.LevelTest2:
-                    levelData = new LevelTest_2();
+                case LevelName.Level9:
+                    levelData = new LevelData_9();
+                    break;
+                case LevelName.Level10:
+                    levelData = new LevelData_10();
                     break;
                 default:
                     levelData = new LevelData_0();

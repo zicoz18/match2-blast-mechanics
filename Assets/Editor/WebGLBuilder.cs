@@ -11,14 +11,24 @@ namespace GameEditor
 	/// </summary>
 	public static class WebGLBuilder
 	{
-		private const string ScenePath = "Assets/Scenes/LevelScene.unity";
+		// MainScene first: the scene at index 0 is what the build boots into.
+		private static readonly string[] ScenePaths =
+		{
+			"Assets/Scenes/MainScene.unity",
+			"Assets/Scenes/LevelScene.unity",
+		};
 		private const string OutputPath = "Build/WebGL";
 
 		public static void Build()
 		{
 			// The project's build settings still point at a SampleScene that no longer
 			// exists, so the scene list is set explicitly rather than read from there.
-			EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
+			var buildScenes = new EditorBuildSettingsScene[ScenePaths.Length];
+			for (int i = 0; i < ScenePaths.Length; i++)
+			{
+				buildScenes[i] = new EditorBuildSettingsScene(ScenePaths[i], true);
+			}
+			EditorBuildSettings.scenes = buildScenes;
 
 			// Gzip rather than Brotli: GitHub Pages does not send the Content-Encoding
 			// headers Brotli requires, and the build silently fails to load there.
@@ -31,14 +41,14 @@ namespace GameEditor
 
 			var options = new BuildPlayerOptions
 			{
-				scenes = new[] { ScenePath },
+				scenes = ScenePaths,
 				locationPathName = OutputPath,
 				target = BuildTarget.WebGL,
 				targetGroup = BuildTargetGroup.WebGL,
 				options = BuildOptions.None
 			};
 
-			Debug.Log($"[WebGLBuilder] Building {ScenePath} -> {OutputPath}");
+			Debug.Log($"[WebGLBuilder] Building {ScenePaths.Length} scene(s) -> {OutputPath}");
 			BuildReport report = BuildPipeline.BuildPlayer(options);
 			var summary = report.summary;
 

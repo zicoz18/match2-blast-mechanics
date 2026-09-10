@@ -210,6 +210,22 @@ namespace Game.Core.BoardBase
 			return Cells[x, y];
 		}
 
+		public List<Cell> GetSquareArea(Cell centre, int radius)
+		{
+			List<Cell> area = new List<Cell>();
+
+			for (int x = centre.X - radius; x <= centre.X + radius; x++)
+			{
+				for (int y = centre.Y - radius; y <= centre.Y + radius; y++)
+				{
+					if (x < 0 || x >= Cols || y < 0 || y >= Rows) continue;
+					area.Add(Cells[x, y]);
+				}
+			}
+
+			return area;
+		}
+
 		public List<Cell> GetRow(Cell cell)
 		{
 			int y = cell.Y;

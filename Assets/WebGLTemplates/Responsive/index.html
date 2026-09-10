@@ -7,7 +7,17 @@
     <style>
       html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #1b1d21; }
       #unity-container { position: absolute; inset: 0; }
-      #unity-canvas { width: 100%; height: 100%; display: block; background: #1b1d21; }
+      /* The game is laid out for a portrait phone. Capping the canvas at 9:16 keeps that
+         framing everywhere: a desktop window gets a centred phone-shaped column instead of
+         a stretched one, while a portrait phone is narrower than the cap and so still
+         fills the screen. */
+      #unity-canvas {
+        display: block;
+        height: 100%;
+        width: min(100%, calc(100vh * 0.5625));
+        margin: 0 auto;
+        background: #1b1d21;
+      }
       #unity-loading-bar {
         position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
         width: 220px; display: block; font: 14px/1.4 system-ui, sans-serif; color: #cfd3d8;

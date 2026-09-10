@@ -15,13 +15,23 @@ namespace Game.Mechanics
 		public List<Cell> FindMatches(Cell cell, MatchType matchType)
 		{
 			var resultCells = new List<Cell>();
-			ClearVisitedCells();
 			FindMatches(cell, matchType, resultCells);
 
 			return resultCells;
 		}
 
+		/// <summary>
+		/// Fills a caller-supplied list instead of allocating one. Lets a caller that runs
+		/// every frame reuse a single buffer rather than producing garbage per probe.
+		/// </summary>
 		public void FindMatches(Cell cell, MatchType matchType, List<Cell> resultCells)
+		{
+			resultCells.Clear();
+			ClearVisitedCells();
+			FindMatchesFrom(cell, matchType, resultCells);
+		}
+
+		private void FindMatchesFrom(Cell cell, MatchType matchType, List<Cell> resultCells)
 		{
 			if (cell == null) return;
 
@@ -41,7 +51,7 @@ namespace Game.Mechanics
 
 				for (var i = 0; i < neighbours.Count; i++)
 				{
-					FindMatches(neighbours[i], matchType, resultCells);
+					FindMatchesFrom(neighbours[i], matchType, resultCells);
 				}
 			}
 		}

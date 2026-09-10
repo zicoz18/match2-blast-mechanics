@@ -8,12 +8,18 @@ namespace Utils
 		// its border stay fully on screen at any aspect ratio.
 		private const float VisibleUnits = 10f;
 
+		// Fraction of the screen height the board camera is allowed to draw into. The
+		// remainder at the top belongs to the HUD, which is why the board can never
+		// overlap it: the camera physically cannot render there.
+		private const float BoardViewportHeight = 0.84f;
+
 		private Camera _camera;
 		private float _lastAspect;
 
 		private void Awake()
 		{
 			_camera = GetComponent<Camera>();
+			_camera.rect = new Rect(0f, 0f, 1f, BoardViewportHeight);
 			PrepareCamera();
 		}
 
@@ -29,11 +35,13 @@ namespace Utils
 
 		private void PrepareCamera()
 		{
+			// Camera.aspect already accounts for the viewport rect, so this is the aspect
+			// of the board's slice of the screen rather than of the whole window.
 			_lastAspect = _camera.aspect;
 
 			// Taking the larger of the two requirements letterboxes rather than crops:
-			// the previous version only satisfied the width constraint, which cropped the
-			// board vertically on any landscape aspect.
+			// satisfying only the width constraint cropped the board vertically on any
+			// landscape aspect.
 			var sizeToFitHeight = VisibleUnits / 2f;
 			var sizeToFitWidth = (VisibleUnits / _camera.aspect) / 2f;
 

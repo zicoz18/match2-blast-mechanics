@@ -118,5 +118,49 @@ namespace Game.Managers
                     return null;
             }
         }
+
+        public Sprite GetSpriteForGoalType(GoalType goalType)
+        {
+            switch (goalType)
+            {
+                case GoalType.None:
+                    return null;
+                case GoalType.GreenCube:
+                    return GreenCubeSprite;
+                case GoalType.YellowCube:
+                    return YellowCubeSprite;
+                case GoalType.BlueCube:
+                    return BlueCubeSprite;
+                case GoalType.RedCube:
+                    return RedCubeSprite;
+                case GoalType.Cube: // @TODO: There is no sprite for it now, have to get a rainbow cube
+                    return GreenCubeSprite;
+                case GoalType.Balloon:
+                    return BalloonSprite;
+                case GoalType.ColoredBalloon: // @TODO: There is no sprite for it now, have to get a rainbow balloon
+                    return GreenBalloonSprite;
+                case GoalType.GreenBalloon:
+                    return GreenBalloonSprite;
+                case GoalType.YellowBalloon:
+                    return YellowBalloonSprite;
+                case GoalType.BlueBalloon:
+                    return BlueBalloonSprite;
+                case GoalType.RedBalloon:
+                    return RedBalloonSprite;
+                case GoalType.Crate:
+                    return CrateLayer2Sprite;
+                case GoalType.Bomb:
+                    return BombSprite;
+                case GoalType.VerticalRocket:
+                    return VerticalRocketSprite;
+                case GoalType.HorizontalRocket:
+                    return HorizontalRocketSprite;
+                case GoalType.AnyRocket: // @TODO: There is no sprite for it now, have to get a double sided rocket
+                    return VerticalRocketSprite;
+                default:
+                    Debug.LogWarning("Can not get sprite for goal type: " + goalType);
+                    return null;
+            }
+        }
     }
 }

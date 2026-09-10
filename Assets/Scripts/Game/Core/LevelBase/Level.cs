@@ -16,7 +16,7 @@ namespace Game.Core.LevelBase
 		private LevelData _levelData;
 		private LevelProgressManager _levelProgressManager;
 
-		private void Start()
+		private void Awake()
 		{
 			PrepareBoard();
 			PrepareLevel();

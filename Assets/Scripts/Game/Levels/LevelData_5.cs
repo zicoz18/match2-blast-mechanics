@@ -7,7 +7,7 @@ namespace Game.Levels
     public class LevelData_5 : LevelData
     {
         public int Level_5_MoveLimit = 20;
-        public Goal[] Level_5_Goals = { new Goal(GoalType.AnyRocket, 10) };
+        public Goal[] Level_5_Goals = { new Goal(GoalType.Rocket, 10) };
 
         public override ItemType GetNextFillItemType()
         {

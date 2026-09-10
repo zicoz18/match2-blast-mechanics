@@ -17,8 +17,10 @@ namespace Game.Managers
         public Sprite RedCubeSprite;
         public Sprite RedCubeRocketHintSprite;
         public Sprite RedCubeBombHintSprite;
+        public Sprite CubeSprite;
 
         public Sprite BalloonSprite;
+        public Sprite ColoredBalloonSprite;
 
         public Sprite GreenBalloonSprite;
         public Sprite YellowBalloonSprite;
@@ -30,6 +32,7 @@ namespace Game.Managers
 
         public Sprite VerticalRocketSprite;
         public Sprite HorizontalRocketSprite;
+        public Sprite RocketSprite;
         public Sprite BombSprite;
 
         private void Awake()
@@ -133,12 +136,12 @@ namespace Game.Managers
                     return BlueCubeSprite;
                 case GoalType.RedCube:
                     return RedCubeSprite;
-                case GoalType.Cube: // @TODO: There is no sprite for it now, have to get a rainbow cube
-                    return GreenCubeSprite;
+                case GoalType.Cube:
+                    return CubeSprite;
                 case GoalType.Balloon:
                     return BalloonSprite;
-                case GoalType.ColoredBalloon: // @TODO: There is no sprite for it now, have to get a rainbow balloon
-                    return GreenBalloonSprite;
+                case GoalType.ColoredBalloon:
+                    return ColoredBalloonSprite;
                 case GoalType.GreenBalloon:
                     return GreenBalloonSprite;
                 case GoalType.YellowBalloon:
@@ -155,8 +158,8 @@ namespace Game.Managers
                     return VerticalRocketSprite;
                 case GoalType.HorizontalRocket:
                     return HorizontalRocketSprite;
-                case GoalType.AnyRocket: // @TODO: There is no sprite for it now, have to get a double sided rocket
-                    return VerticalRocketSprite;
+                case GoalType.Rocket:
+                    return RocketSprite;
                 default:
                     Debug.LogWarning("Can not get sprite for goal type: " + goalType);
                     return null;

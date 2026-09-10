@@ -182,7 +182,7 @@ namespace Game.Managers
 
         private GoalType[] GetRocketBalloonGoalTypes(GoalType directedRocketGoalType)
         {
-            return new[] { directedRocketGoalType, GoalType.AnyRocket };
+            return new[] { directedRocketGoalType, GoalType.Rocket };
         }
     }
 }

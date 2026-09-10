@@ -18,6 +18,6 @@ namespace Game.Core.Enums
         Bomb = 13,
         VerticalRocket = 14,
         HorizontalRocket = 15,
-        AnyRocket = 16,
+        Rocket = 16,
     }
 }

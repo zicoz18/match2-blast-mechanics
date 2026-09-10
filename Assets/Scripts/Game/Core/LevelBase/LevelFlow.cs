@@ -1,14 +1,16 @@
+using System.Collections;
 using Game.Core.Enums;
 using Game.Managers;
+using UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Utils;
 
 namespace Game.Core.LevelBase
 {
 	public class LevelFlow : MonoBehaviour
 	{
-		private const float ReturnDelaySeconds = 1.2f;
+		private const float ShowResultDelaySeconds = 0.8f;
+
+		[SerializeField] private ResultPanel resultPanel;
 
 		private LevelProgressManager _levelProgress;
 
@@ -20,8 +22,6 @@ namespace Game.Core.LevelBase
 
 		private void OnDestroy()
 		{
-			// Genuinely reachable: OnDestroy can run without Start ever having, so this is
-			// not the same unreachable check the other call sites had.
 			if (_levelProgress == null) return;
 			_levelProgress.OnLevelPlayStateChanged -= HandleLevelPlayStateChanged;
 		}
@@ -36,12 +36,13 @@ namespace Game.Core.LevelBase
 				LevelProgress.Advance();
 			}
 
-			Invoke(nameof(ReturnToMainScene), ReturnDelaySeconds);
+			StartCoroutine(ShowResultAfterDelay(args.LevelPlayState));
 		}
 
-		private void ReturnToMainScene()
+		private IEnumerator ShowResultAfterDelay(LevelPlayState state)
 		{
-			SceneManager.LoadScene(SceneNames.Main);
+			yield return new WaitForSeconds(ShowResultDelaySeconds);
+			resultPanel.Show(state);
 		}
 	}
 }

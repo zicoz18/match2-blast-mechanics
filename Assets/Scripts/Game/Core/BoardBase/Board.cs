@@ -74,6 +74,7 @@ namespace Game.Core.BoardBase
 		public void CellTapped(Cell cell)
 		{
 			if (!_canBeTapped) return;
+			if (IsMoving()) return;
 			if (cell == null) return;
 
 			if (!cell.HasItem()) return;
